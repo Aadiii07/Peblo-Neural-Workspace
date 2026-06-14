@@ -28,6 +28,10 @@ These are the screenshots you provided for the portfolio and documentation.
 
 ![Portfolio screenshot 4](docs/portfolio-4.png)
 
+### Preview 5
+
+![Portfolio screenshot 5](docs/portfolio-5.png)
+
 Peblo Neural Workspace is a production-ready AI-powered note management platform designed to help users capture, organize, analyze, and share knowledge using intelligent AI assistance.
 
 Built for the Peblo Full Stack Developer Challenge.
