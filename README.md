@@ -10,15 +10,11 @@ voice interaction, analytics, public sharing, and MongoDB persistence.
 
 ## Portfolio Preview
 
-These are the real app preview assets for the portfolio and documentation.
+These are the screenshots you provided for the portfolio and documentation.
 
-### Landing Page
+### Preview 1
 
-![Landing preview](docs/landing.png)
-
-### Workspace View
-
-![Workspace preview](docs/workspace-real.png)
+![Portfolio screenshot](docs/portfolio-1.png)
 
 Peblo Neural Workspace is a production-ready AI-powered note management platform designed to help users capture, organize, analyze, and share knowledge using intelligent AI assistance.
 
