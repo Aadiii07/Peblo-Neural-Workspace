@@ -1,19 +1,87 @@
 # Peblo Neural Workspace
 
-AI-powered note-taking workspace built using React, Node.js, Express, MongoDB Atlas, and OpenAI/Groq.
+AI-powered note-taking platform with intelligent summaries, action items,
+voice interaction, analytics, public sharing, and MongoDB persistence.
 
-Repository: https://github.com/Aadiii07/Peblo-Neural-Workspace
+## Live Demo
+
+- Frontend: Coming Soon
+- Backend: Coming Soon
+
+## Portfolio Preview
+
+These are the uploaded preview assets for the project portfolio and documentation.
+
+### Workspace View
+
+![Workspace preview](docs/workspace.png)
+
+### Analytics Dashboard
+
+![Dashboard preview](docs/dashboard.png)
+
+Peblo Neural Workspace is a production-ready AI-powered note management platform designed to help users capture, organize, analyze, and share knowledge using intelligent AI assistance.
+
+Built for the Peblo Full Stack Developer Challenge.
+
+## Architecture
+
+### Frontend
+- React
+- Vite
+- Tailwind CSS
+- Framer Motion
+- Zustand
+
+### Backend
+- Node.js
+- Express
+
+### Database
+- MongoDB Atlas
+- Mongoose
+
+### AI
+- OpenAI / Groq
+
+### Authentication
+- JWT
+- bcrypt
 
 ## Features
 
-- JWT Authentication
-- AI Summaries
-- AI Action Items
-- AI Title Suggestions
-- Voice Notes
-- Public Sharing
-- Analytics Dashboard
-- Responsive Design
+- [x] JWT Authentication
+- [x] Auto Save Notes
+- [x] AI Summaries
+- [x] AI Action Items
+- [x] AI Tag Generation
+- [x] AI Title Suggestions
+- [x] Voice Notes
+- [x] Public Sharing
+- [x] Analytics Dashboard
+- [x] MongoDB Persistence
+- [x] Responsive Design
+
+## Tech Stack
+
+### Frontend
+- React
+- Vite
+- Tailwind CSS
+- Framer Motion
+- Zustand
+
+### Backend
+- Node.js
+- Express
+- JWT
+
+### Database
+- MongoDB Atlas
+- Mongoose
+
+### AI
+- OpenAI / Groq
 
 ## Tech Stack
 
@@ -65,4 +133,4 @@ USE_IN_MEMORY_DB=0
 
 Screenshots will be added in the docs folder for the workspace, dashboard, AI summary, and login views.
 
-Built by Aditya for the Peblo Full Stack Developer Challenge.
+Built for the Peblo Full Stack Developer Challenge.
