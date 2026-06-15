@@ -1,46 +1,36 @@
 # Peblo Neural Workspace
 
-AI-powered note-taking platform with intelligent summaries, action items,
-voice interaction, analytics, public sharing, and MongoDB persistence.
+Peblo is an AI-powered note workspace for capturing ideas, generating summaries, creating action items, and sharing notes with collaborators. The repository now includes a Vercel-compatible API entry, a React/Vite frontend, and a Node/Express backend that work together to power the experience.
 
-## Live Demo
+## What is in this repo
 
-- Frontend: Coming Soon
-- Backend: Coming Soon
+- api/ — Vercel serverless wrapper that exposes the same Express app used in local development
+- client/ — React + Vite front end with Tailwind, Framer Motion, Zustand, and the note/voice/AI UI
+- server/ — Express API, authentication, note management, AI integration, and MongoDB connection logic
+- docs/ — portfolio screenshots and visual previews used in this project
 
-## Portfolio Preview
+## Quick start
 
-These are the screenshots you provided for the portfolio and documentation.
+1. Install dependencies for both apps:
+   - npm install --prefix server
+   - npm install --prefix client
+2. Start the backend:
+   - npm run dev:server
+3. Start the frontend in a second terminal:
+   - npm run dev:client
+4. If you want a production build for the frontend:
+   - npm run build
 
-### Preview 1
+## Project structure
 
-![Portfolio screenshot](docs/portfolio-1.png)
+- api/index.js — Vercel entry point that loads the Express app
+- server/app.js — main server setup and route wiring
+- server/controllers/ — auth, notes, AI, and note-sharing logic
+- server/models/ — Mongoose models for users and notes
+- server/routes/ — API endpoints for auth, notes, and sharing
+- client/src/ — React pages, components, services, hooks, and store logic
 
-### Preview 2
-
-![Portfolio screenshot 2](docs/portfolio-2.png)
-
-### Preview 3
-
-![Portfolio screenshot 3](docs/portfolio-3.png)
-
-### Preview 4
-
-![Portfolio screenshot 4](docs/portfolio-4.png)
-
-### Preview 5
-
-![Portfolio screenshot 5](docs/portfolio-5.png)
-
-### Preview 6
-
-![Portfolio screenshot 6](docs/portfolio-6.png)
-
-Peblo Neural Workspace is a production-ready AI-powered note management platform designed to help users capture, organize, analyze, and share knowledge using intelligent AI assistance.
-
-Built for the Peblo Full Stack Developer Challenge.
-
-## Architecture
+## Tech stack
 
 ### Frontend
 - React
@@ -48,89 +38,34 @@ Built for the Peblo Full Stack Developer Challenge.
 - Tailwind CSS
 - Framer Motion
 - Zustand
+- Axios
 
 ### Backend
 - Node.js
 - Express
-
-### Database
-- MongoDB Atlas
-- Mongoose
-
-### AI
-- OpenAI / Groq
-
-### Authentication
 - JWT
-- bcrypt
+- bcryptjs
+
+### Data and AI
+- MongoDB Atlas / Mongoose
+- OpenAI / Groq integration
 
 ## Features
 
-- [x] JWT Authentication
-- [x] Auto Save Notes
-- [x] AI Summaries
-- [x] AI Action Items
-- [x] AI Tag Generation
-- [x] AI Title Suggestions
-- [x] Voice Notes
-- [x] Public Sharing
-- [x] Analytics Dashboard
-- [x] MongoDB Persistence
-- [x] Responsive Design
+- JWT authentication
+- Auto-save note workspace
+- AI summaries and action items
+- AI tags and title suggestions
+- Voice note interaction
+- Public sharing links
+- Analytics-style dashboard
+- Responsive interface
 
-## Tech Stack
+## Environment setup
 
-### Frontend
-- React
-- Vite
-- Tailwind CSS
-- Framer Motion
-- Zustand
+Create a local environment file in the server folder before running the backend.
 
-### Backend
-- Node.js
-- Express
-- JWT
-
-### Database
-- MongoDB Atlas
-- Mongoose
-
-### AI
-- OpenAI / Groq
-
-## Tech Stack
-
-### Frontend
-- React
-- Vite
-- Tailwind CSS
-- Framer Motion
-- Zustand
-
-### Backend
-- Node.js
-- Express
-- JWT
-
-### Database
-- MongoDB Atlas
-- Mongoose
-
-### AI
-- OpenAI / Groq
-
-## Getting Started
-
-1. Install dependencies for both apps:
-   - Backend: cd server && npm install
-   - Frontend: cd client && npm install
-2. Create a local environment file in the server folder using the template in server/.env.example.
-3. Start the backend and frontend in separate terminals.
-
-## Environment Variables
-
-Create server/.env from the example below:
+Example variables:
 
 PORT=5000
 MONGODB_URI=your_mongodb_connection_string
@@ -139,14 +74,17 @@ OPENAI_API_KEY=your_api_key
 CLIENT_URL=http://localhost:5173
 USE_IN_MEMORY_DB=0
 
-## Project Structure
+## Preview gallery
 
-- server/ — Express API, auth, notes, AI integration
-- client/ — React/Vite frontend
-- docs/ — screenshots and preview assets
+The screenshot files in the docs folder have been renamed and are now organized as follows:
 
-## Preview
+- docs/ai-assistant-panel.png
+- docs/action-items-tags.png
+- docs/analytics-dashboard.png
+- docs/public-share-page.png
+- docs/voice-note-modal.png
+- docs/workspace-editor.png
 
-Screenshots will be added in the docs folder for the workspace, dashboard, AI summary, and login views.
+Use the images in this folder for the portfolio, documentation, and visual walkthroughs.
 
 Built for the Peblo Full Stack Developer Challenge.

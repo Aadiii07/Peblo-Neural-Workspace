@@ -2,7 +2,7 @@
   "name": "peblo-neural-workspace",
   "version": "1.0.0",
   "private": true,
-  "description": "Peblo Neural Workspace by Aditya — full stack",
+  "description": "Production-ready AI-powered note-taking platform with summaries, voice interaction, public sharing, analytics dashboard, and MongoDB Atlas integration.",
   "homepage": "https://github.com/Aadiii07/Peblo-Neural-Workspace",
   "repository": {
     "type": "git",
