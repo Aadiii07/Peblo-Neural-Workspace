@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const Note = require('../models/Note');
 
 const getNotes = async (req, res) => {
@@ -12,10 +13,11 @@ const getNotes = async (req, res) => {
     if (tag) query.tags = tag.toLowerCase();
     if (category) query.category = category;
     if (search) {
+      const escapedSearch = search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
       query.$or = [
-        { title: { $regex: search, $options: 'i' } },
-        { content: { $regex: search, $options: 'i' } },
-        { tags: { $regex: search, $options: 'i' } },
+        { title: { $regex: escapedSearch, $options: 'i' } },
+        { content: { $regex: escapedSearch, $options: 'i' } },
+        { tags: { $regex: escapedSearch, $options: 'i' } },
       ];
     }
 
@@ -99,7 +101,7 @@ const getStats = async (req, res) => {
       Note.countDocuments({ userId, archived: true }),
       Note.countDocuments({ userId, aiUsageCount: { $gt: 0 } }),
       Note.aggregate([
-        { $match: { userId } },
+        { $match: { userId: new mongoose.Types.ObjectId(userId) } },
         { $unwind: '$tags' },
         { $group: { _id: '$tags', count: { $sum: 1 } } },
         { $sort: { count: -1 } },
@@ -111,7 +113,7 @@ const getStats = async (req, res) => {
       .sort({ updatedAt: -1 }).limit(5).select('title updatedAt').lean();
 
     const weeklyActivity = await Note.aggregate([
-      { $match: { userId, createdAt: { $gte: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000) } } },
+      { $match: { userId: new mongoose.Types.ObjectId(userId), createdAt: { $gte: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000) } } },
       { $group: { _id: { $dayOfWeek: '$createdAt' }, count: { $sum: 1 } } },
     ]);
 

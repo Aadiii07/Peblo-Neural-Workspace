@@ -1,4 +1,14 @@
 require('dotenv').config();
+
+// Fail fast if critical environment variables are missing
+const requiredEnv = ['JWT_SECRET', 'OPENAI_API_KEY'];
+requiredEnv.forEach((key) => {
+  if (!process.env[key] || !process.env[key].trim()) {
+    console.error(`❌ Critical environment variable is missing: ${key}`);
+    throw new Error(`Missing environment variable: ${key}. Please check your server/.env file.`);
+  }
+});
+
 const express = require('express');
 const cors = require('cors');
 const connectDB = require('./config/db');
