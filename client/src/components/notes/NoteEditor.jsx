@@ -207,7 +207,7 @@ export default function NoteEditor({ note, onDelete, onAIPanel }) {
       </div>
 
       {/* ── Scrollable editing area ── */}
-      <div style={{ flex: 1, overflowY: 'auto', padding: '24px 32px', display: 'flex', flexDirection: 'column', gap: 16 }}>
+      <div className="p-4 sm:p-6 md:p-8" style={{ flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: 16 }}>
 
         {/* Title */}
         <textarea
@@ -215,10 +215,11 @@ export default function NoteEditor({ note, onDelete, onAIPanel }) {
           onChange={(e) => handleTitle(e.target.value)}
           placeholder="Untitled Note"
           rows={1}
+          className="text-2xl md:text-[28px]"
           style={{
             background: 'transparent', border: 'none', outline: 'none', resize: 'none',
             color: 'white', fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700,
-            fontSize: 28, lineHeight: 1.3, width: '100%', overflow: 'hidden',
+            lineHeight: 1.3, width: '100%', overflow: 'hidden',
             placeholder: '#1e293b',
           }}
           onInput={(e) => {

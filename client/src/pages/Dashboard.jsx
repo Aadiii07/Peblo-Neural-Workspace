@@ -45,49 +45,49 @@ export default function Dashboard() {
   return (
     <div className="relative min-h-screen font-body" style={{ background: '#0B1020' }}>
       <CosmicBackground intensity={0.45} variant="subtle" />
-      <div className="relative z-10 max-w-5xl mx-auto px-6 py-10">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-10">
 
         {/* Header */}
-        <div className="flex items-center gap-4 mb-10">
+        <div className="flex items-center gap-4 mb-8 sm:mb-10">
           <button onClick={() => navigate('/workspace')}
             className="p-2 rounded-xl text-slate-500 hover:text-white transition-colors glass">
             <ArrowLeft size={18} />
           </button>
           <div className="flex items-center gap-3">
-            <AIOrb size={44} />
+            <AIOrb size={40} />
             <div>
-              <h1 className="font-display font-bold text-white text-2xl">Neural Dashboard</h1>
-              <p className="text-slate-500 text-sm">Your thought universe at a glance</p>
+              <h1 className="font-display font-bold text-white text-xl sm:text-2xl">Neural Dashboard</h1>
+              <p className="text-slate-500 text-xs sm:text-sm">Your thought universe at a glance</p>
             </div>
           </div>
         </div>
 
         {loading ? (
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-8">
             {[...Array(4)].map((_, i) => <div key={i} className="h-28 rounded-2xl shimmer" />)}
           </div>
         ) : (
           <>
             {/* Stat cards */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-8">
               {statCards.map((card, i) => (
                 <motion.div key={card.label}
                   initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }}
                   whileHover={{ y: -3, boxShadow: `0 12px 40px ${card.bg}` }}
-                  className="p-5 rounded-2xl" style={{ background: card.bg, border: `1px solid ${card.color}30` }}>
+                  className="p-4 sm:p-5 rounded-2xl" style={{ background: card.bg, border: `1px solid ${card.color}30` }}>
                   <div className="flex items-center justify-between mb-3">
                     <card.icon size={18} style={{ color: card.color }} />
-                    <div className="text-3xl font-display font-bold text-white">{card.value}</div>
+                    <div className="text-2xl sm:text-3xl font-display font-bold text-white">{card.value}</div>
                   </div>
-                  <div className="text-slate-400 text-xs uppercase tracking-wider">{card.label}</div>
+                  <div className="text-slate-400 text-[10px] sm:text-xs uppercase tracking-wider">{card.label}</div>
                 </motion.div>
               ))}
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6 mb-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               {/* Weekly Activity */}
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
-                className="p-6 rounded-2xl glass" style={{ border: '1px solid rgba(255,255,255,0.08)' }}>
+                className="p-4 sm:p-6 rounded-2xl glass" style={{ border: '1px solid rgba(255,255,255,0.08)' }}>
                 <h3 className="font-display font-semibold text-white mb-5 flex items-center gap-2">
                   <BarChart2 size={16} className="text-violet-400" /> Weekly Activity
                 </h3>
@@ -114,7 +114,7 @@ export default function Dashboard() {
 
               {/* Top Tags */}
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}
-                className="p-6 rounded-2xl glass" style={{ border: '1px solid rgba(255,255,255,0.08)' }}>
+                className="p-4 sm:p-6 rounded-2xl glass" style={{ border: '1px solid rgba(255,255,255,0.08)' }}>
                 <h3 className="font-display font-semibold text-white mb-5 flex items-center gap-2">
                   <Tag size={16} className="text-cyan-400" /> Most Used Tags
                 </h3>
@@ -145,7 +145,7 @@ export default function Dashboard() {
 
             {/* Recent Notes */}
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}
-              className="p-6 rounded-2xl glass" style={{ border: '1px solid rgba(255,255,255,0.08)' }}>
+              className="p-4 sm:p-6 rounded-2xl glass" style={{ border: '1px solid rgba(255,255,255,0.08)' }}>
               <h3 className="font-display font-semibold text-white mb-5 flex items-center gap-2">
                 <Clock size={16} className="text-pink-400" /> Recently Edited
               </h3>

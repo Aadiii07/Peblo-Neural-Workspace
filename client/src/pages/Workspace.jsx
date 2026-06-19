@@ -68,7 +68,7 @@ export default function Workspace() {
   };
 
   return (
-    <div className="relative flex h-screen w-screen overflow-hidden" style={{ background: '#0B1020' }}>
+    <div className="relative flex flex-col md:flex-row min-h-screen md:h-screen w-full md:w-screen overflow-y-auto md:overflow-hidden" style={{ background: '#0B1020' }}>
 
       {/* Cosmic background — behind everything */}
       <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 0 }}>
@@ -82,12 +82,11 @@ export default function Workspace() {
 
       {/* ── NOTES LIST ── */}
       <div
-        className="flex-shrink-0 flex flex-col h-full"
+        className="w-full md:w-[272px] h-[350px] md:h-full flex-shrink-0 flex flex-col border-b md:border-b-0 md:border-r"
         style={{
-          width: 272,
           zIndex: 20,
           background: 'rgba(13,17,38,0.95)',
-          borderRight: '1px solid rgba(255,255,255,0.08)',
+          borderColor: 'rgba(255,255,255,0.08)',
           backdropFilter: 'blur(24px)',
         }}
       >
@@ -156,7 +155,7 @@ export default function Workspace() {
       </div>
 
       {/* ── EDITOR + AI PANEL ── */}
-      <div className="flex flex-1 h-full overflow-hidden" style={{ zIndex: 20, background: 'rgba(11,16,32,0.75)', backdropFilter: 'blur(16px)' }}>
+      <div className="flex flex-col md:flex-row flex-1 min-h-[500px] md:h-full overflow-hidden" style={{ zIndex: 20, background: 'rgba(11,16,32,0.75)', backdropFilter: 'blur(16px)' }}>
         <NoteEditor
           note={activeNote}
           onDelete={handleDelete}

@@ -25,14 +25,14 @@ export default function SharedNote() {
       <CosmicBackground intensity={0.5} variant="subtle" />
 
       {/* Nav */}
-      <nav className="relative z-10 flex items-center justify-between px-8 py-5">
+      <nav className="relative z-10 flex items-center justify-between px-4 sm:px-8 py-5">
         <Link to="/" className="flex items-center gap-2">
           <div className="w-7 h-7 rounded-full" style={{ background: 'radial-gradient(circle at 30% 30%, #a78bfa, #7c3aed)' }} />
           <span className="font-display font-bold text-white">Peblo</span>
         </Link>
         <Link to="/signup">
           <motion.button
-            className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-medium text-white"
+            className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-medium text-white"
             style={{ background: 'linear-gradient(135deg, #7c3aed, #22d3ee)' }}
             whileHover={{ scale: 1.05 }}
           >
@@ -41,7 +41,7 @@ export default function SharedNote() {
         </Link>
       </nav>
 
-      <div className="relative z-10 max-w-2xl mx-auto px-6 py-12">
+      <div className="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
         {loading ? (
           <div className="space-y-4">
             <div className="h-10 rounded-xl shimmer" />

@@ -129,8 +129,8 @@ export default function AIPanel({ note, onClose }) {
       animate={{ x: 0, opacity: 1 }}
       exit={{ x: 300, opacity: 0 }}
       transition={{ type: 'spring', damping: 25 }}
-      className="w-80 flex flex-col h-full border-l overflow-y-auto"
-      style={{ borderColor: 'rgba(255,255,255,0.06)', background: 'rgba(11,16,32,0.8)' }}
+      className="w-full md:w-80 flex flex-col h-[400px] md:h-full border-t md:border-t-0 md:border-l overflow-y-auto"
+      style={{ borderColor: 'rgba(255,255,255,0.06)', background: 'rgba(11,16,32,0.9)' }}
     >
       {/* Header */}
       <div className="flex items-center justify-between px-5 py-4 border-b" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>

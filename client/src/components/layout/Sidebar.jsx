@@ -20,15 +20,11 @@ export default function Sidebar({ onNewNote, tags = [] }) {
       initial={{ opacity: 0, x: -14 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+      className="w-full md:w-[220px] h-auto md:h-screen flex flex-col flex-shrink-0 border-b md:border-b-0 md:border-r"
       style={{
-        width: 220,
-        height: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
         background: 'rgba(10,13,30,0.98)',
-        borderRight: '1px solid rgba(124,58,237,0.15)',
+        borderColor: 'rgba(124,58,237,0.15)',
         backdropFilter: 'blur(30px)',
-        flexShrink: 0,
       }}
     >
       {/* Logo */}

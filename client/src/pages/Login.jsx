@@ -30,18 +30,18 @@ export default function Login() {
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center px-6 font-body" style={{ background: '#0B1020' }}>
+    <div className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 font-body" style={{ background: '#0B1020' }}>
       <CosmicBackground intensity={0.65} variant="subtle" />
       <motion.div
         initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
         className="relative z-10 w-full max-w-md"
       >
-        <div className="glass-strong rounded-3xl p-10" style={{ border: '1px solid rgba(124,58,237,0.2)' }}>
+        <div className="glass-strong rounded-3xl p-6 sm:p-10" style={{ border: '1px solid rgba(124,58,237,0.2)' }}>
           {/* Logo */}
           <div className="flex flex-col items-center mb-8">
-            <AIOrb size={70} isGenerating={loading} />
+            <AIOrb size={60} isGenerating={loading} />
             <h1 className="font-display font-bold text-white text-2xl mt-4">Welcome Back</h1>
-            <p className="text-slate-400 text-sm mt-1">Sign in to your neural workspace</p>
+            <p className="text-slate-400 text-sm mt-1 text-center">Sign in to your neural workspace</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-5">

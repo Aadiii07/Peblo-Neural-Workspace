@@ -40,17 +40,17 @@ export default function Landing() {
       />
 
       {/* Nav */}
-      <nav className="relative z-50 flex items-center justify-between px-8 py-6">
+      <nav className="relative z-50 flex items-center justify-between px-4 sm:px-8 py-6">
         <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-full" style={{ background: 'radial-gradient(circle at 30% 30%, #a78bfa, #7c3aed)' }} />
           <span className="font-display font-bold text-white text-lg tracking-wide">Peblo</span>
         </motion.div>
 
-        <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="flex items-center gap-4">
+        <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="flex items-center gap-2 sm:gap-4">
           {/* Music toggle */}
           <motion.button
             onClick={toggleMusic}
-            className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all"
+            className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all"
             style={{
               background: musicOn ? 'rgba(124,58,237,0.3)' : 'rgba(255,255,255,0.05)',
               border: `1px solid ${musicOn ? 'rgba(124,58,237,0.6)' : 'rgba(255,255,255,0.1)'}`,
@@ -60,12 +60,12 @@ export default function Landing() {
             whileTap={{ scale: 0.97 }}
           >
             <Music size={14} />
-            {musicOn ? 'Music On' : '♫ Enter Peblo Universe'}
+            <span className="hidden sm:inline">{musicOn ? 'Music On' : '♫ Enter Peblo Universe'}</span>
           </motion.button>
 
           <Link to="/login">
             <motion.button
-              className="px-4 py-2 text-sm text-slate-300 hover:text-white transition-colors"
+              className="px-2 sm:px-4 py-2 text-xs sm:text-sm text-slate-300 hover:text-white transition-colors"
               whileHover={{ scale: 1.03 }}
             >
               Sign In
@@ -73,7 +73,7 @@ export default function Landing() {
           </Link>
           <Link to="/signup">
             <motion.button
-              className="px-5 py-2 rounded-full text-sm font-semibold text-white"
+              className="px-3 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-semibold text-white"
               style={{ background: 'linear-gradient(135deg, #7c3aed, #22d3ee)' }}
               whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(124,58,237,0.5)' }}
               whileTap={{ scale: 0.97 }}
@@ -86,7 +86,7 @@ export default function Landing() {
 
       {/* Hero */}
       <motion.section
-        className="relative z-10 cosmic-ui-layer flex flex-col items-center justify-center text-center px-6 pt-16 pb-32"
+        className="relative z-10 cosmic-ui-layer flex flex-col items-center justify-center text-center px-4 sm:px-6 pt-12 sm:pt-16 pb-20 sm:pb-32"
         style={{ y: heroY }}
       >
         {/* Orb */}
@@ -94,15 +94,15 @@ export default function Landing() {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: 'easeOut' }}
-          className="mb-12"
+          className="mb-8 sm:mb-12"
         >
-          <AIOrb size={140} isGenerating={musicOn} />
+          <AIOrb size={100} className="sm:w-[140px] sm:h-[140px]" isGenerating={musicOn} />
         </motion.div>
 
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
-          className="mb-6 flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium uppercase tracking-widest"
+          className="mb-6 flex items-center gap-2 px-4 py-2 rounded-full text-[10px] sm:text-xs font-medium uppercase tracking-widest"
           style={{ background: 'rgba(124,58,237,0.15)', border: '1px solid rgba(124,58,237,0.3)', color: '#a78bfa' }}
         >
           <Sparkles size={12} />
@@ -113,7 +113,7 @@ export default function Landing() {
         <motion.h1
           initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.8 }}
           className="font-display font-bold leading-tight mb-6"
-          style={{ fontSize: 'clamp(2.5rem, 7vw, 5.5rem)', maxWidth: 900 }}
+          style={{ fontSize: 'clamp(2rem, 7vw, 5.5rem)', maxWidth: 900 }}
         >
           <span className="text-white">Every Curious Mind</span>
           <br />
@@ -123,21 +123,21 @@ export default function Landing() {
         {/* Subheading */}
         <motion.p
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.55 }}
-          className="text-slate-400 text-xl mb-10 max-w-xl leading-relaxed"
+          className="text-slate-400 text-lg sm:text-xl mb-10 max-w-xl leading-relaxed"
         >
           Write. Organize. Summarize. Think Faster.
           <br />
-          <span className="text-slate-500 text-base">An immersive AI-powered thought universe where notes become living intelligence.</span>
+          <span className="text-slate-500 text-sm sm:text-base">An immersive AI-powered thought universe where notes become living intelligence.</span>
         </motion.p>
 
         {/* CTAs */}
         <motion.div
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }}
-          className="flex flex-wrap items-center justify-center gap-4"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto px-4"
         >
-          <Link to="/signup">
+          <Link to="/signup" className="w-full sm:w-auto">
             <motion.button
-              className="flex items-center gap-2 px-8 py-4 rounded-2xl font-semibold text-white text-base"
+              className="flex items-center justify-center gap-2 px-8 py-4 rounded-2xl font-semibold text-white text-base w-full sm:w-auto"
               style={{ background: 'linear-gradient(135deg, #7c3aed 0%, #22d3ee 100%)', boxShadow: '0 0 40px rgba(124,58,237,0.4)' }}
               whileHover={{ scale: 1.05, boxShadow: '0 0 60px rgba(124,58,237,0.6)' }}
               whileTap={{ scale: 0.97 }}
@@ -147,7 +147,7 @@ export default function Landing() {
           </Link>
           <motion.button
             onClick={() => setShowVideoModal(true)}
-            className="flex items-center gap-2 px-8 py-4 rounded-2xl font-semibold text-slate-300 text-base glass"
+            className="flex items-center justify-center gap-2 px-8 py-4 rounded-2xl font-semibold text-slate-300 text-base glass w-full sm:w-auto"
             style={{ border: '1px solid rgba(255,255,255,0.1)' }}
             whileHover={{ scale: 1.05, borderColor: 'rgba(124,58,237,0.5)', color: 'white' }}
             whileTap={{ scale: 0.97 }}
@@ -159,7 +159,7 @@ export default function Landing() {
         {/* Stats */}
         <motion.div
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.1 }}
-          className="flex items-center gap-8 mt-16 text-center"
+          className="flex flex-wrap items-center justify-center gap-6 sm:gap-12 mt-16 text-center"
         >
           {[
             { val: 'GPT-4.1', label: 'AI Engine' },
@@ -167,8 +167,8 @@ export default function Landing() {
             { val: '∞', label: 'Notes' },
           ].map((s) => (
             <div key={s.label}>
-              <div className="font-display font-bold text-2xl gradient-text">{s.val}</div>
-              <div className="text-slate-500 text-xs mt-1 uppercase tracking-wider">{s.label}</div>
+              <div className="font-display font-bold text-xl sm:text-2xl gradient-text">{s.val}</div>
+              <div className="text-slate-500 text-[10px] sm:text-xs mt-1 uppercase tracking-wider">{s.label}</div>
             </div>
           ))}
         </motion.div>
@@ -216,12 +216,12 @@ export default function Landing() {
       </section>
 
       {/* Final CTA */}
-      <section className="relative z-10 cosmic-ui-layer px-6 pb-32 text-center">
+      <section className="relative z-10 cosmic-ui-layer px-4 sm:px-6 pb-32 text-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="max-w-2xl mx-auto p-12 rounded-3xl"
+          className="max-w-2xl mx-auto p-6 sm:p-12 rounded-3xl"
           style={{ background: 'rgba(124,58,237,0.08)', border: '1px solid rgba(124,58,237,0.2)' }}
         >
           <AIOrb size={80} className="mx-auto mb-6" />
