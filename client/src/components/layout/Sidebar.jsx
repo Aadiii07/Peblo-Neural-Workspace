@@ -6,7 +6,7 @@ import useAuthStore from '../../store/authStore';
 import useNotesStore from '../../store/notesStore';
 import { staggerContainer, staggerItem } from '../../utils/motionVariants';
 
-export default function Sidebar({ onNewNote, tags = [] }) {
+export default function Sidebar({ onNewNote, tags = [], showClose = false, onClose }) {
   const { user, logout } = useAuthStore();
   const { searchQuery, setSearchQuery, selectedTag, setSelectedTag, showArchived, setShowArchived, fetchNotes } = useNotesStore();
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ export default function Sidebar({ onNewNote, tags = [] }) {
       initial={{ opacity: 0, x: -14 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-      className="w-full md:w-[220px] h-auto md:h-screen flex flex-col flex-shrink-0 border-b md:border-b-0 md:border-r"
+      className="w-full h-full md:w-[220px] md:h-screen flex flex-col flex-shrink-0 border-r"
       style={{
         background: 'rgba(10,13,30,0.98)',
         borderColor: 'rgba(124,58,237,0.15)',
@@ -28,16 +28,23 @@ export default function Sidebar({ onNewNote, tags = [] }) {
       }}
     >
       {/* Logo */}
-      <div style={{ padding: '20px 16px 16px', borderBottom: '1px solid rgba(255,255,255,0.06)', display: 'flex', alignItems: 'center', gap: 10 }}>
-        <motion.div
-          animate={{ boxShadow: ['0 0 10px rgba(124,58,237,0.25)', '0 0 18px rgba(124,58,237,0.45)', '0 0 10px rgba(124,58,237,0.25)'] }}
-          transition={{ duration: 3, repeat: Infinity }}
-          style={{ width: 30, height: 30, borderRadius: '50%', background: 'radial-gradient(circle at 30% 30%, #c4b5fd, #7c3aed)', flexShrink: 0 }}
-        />
-        <div>
-          <div style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, color: 'white', fontSize: 15 }}>Peblo</div>
-          <div style={{ color: '#475569', fontSize: 10, letterSpacing: 1 }}>NEURAL WORKSPACE</div>
+      <div style={{ padding: '20px 16px 16px', borderBottom: '1px solid rgba(255,255,255,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+          <motion.div
+            animate={{ boxShadow: ['0 0 10px rgba(124,58,237,0.25)', '0 0 18px rgba(124,58,237,0.45)', '0 0 10px rgba(124,58,237,0.25)'] }}
+            transition={{ duration: 3, repeat: Infinity }}
+            style={{ width: 30, height: 30, borderRadius: '50%', background: 'radial-gradient(circle at 30% 30%, #c4b5fd, #7c3aed)', flexShrink: 0 }}
+          />
+          <div>
+            <div style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, color: 'white', fontSize: 15 }}>Peblo</div>
+            <div style={{ color: '#475569', fontSize: 10, letterSpacing: 1 }}>NEURAL WORKSPACE</div>
+          </div>
         </div>
+        {showClose && (
+          <button onClick={onClose} className="text-slate-500 hover:text-white p-1 transition-colors bg-transparent border-none cursor-pointer">
+            <X size={18} />
+          </button>
+        )}
       </div>
 
       {/* New Note Button */}

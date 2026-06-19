@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mic, Sparkles, Plus } from 'lucide-react';
+import { Mic, Sparkles, Plus, Menu } from 'lucide-react';
 import toast from 'react-hot-toast';
 import useNotesStore from '../store/notesStore';
 import CosmicBackground from '../components/ui/CosmicBackground';
@@ -19,6 +19,7 @@ export default function Workspace() {
 
   const [showAI, setShowAI] = useState(false);
   const [showVoice, setShowVoice] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(() => { fetchNotes(); }, []);
 
@@ -75,8 +76,52 @@ export default function Workspace() {
         <CosmicBackground intensity={0.45} variant="subtle" />
       </div>
 
-      {/* ── SIDEBAR ── */}
-      <div className="relative flex-shrink-0" style={{ zIndex: 20 }}>
+      {/* ── MOBILE HEADER (HAMBURGER) ── */}
+      <div className="md:hidden flex items-center justify-between px-4 py-3 bg-[#0a0d1e] border-b border-white/5 z-30">
+        <div className="flex items-center gap-3">
+          <button
+            onClick={() => setSidebarOpen(true)}
+            className="text-slate-400 hover:text-white p-1 bg-transparent border-none cursor-pointer flex items-center justify-center"
+          >
+            <Menu size={22} />
+          </button>
+          <span className="font-display font-semibold text-white text-base">Peblo</span>
+        </div>
+      </div>
+
+      {/* ── SIDEBAR DRAWER OVERLAY FOR MOBILE ── */}
+      <AnimatePresence>
+        {sidebarOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSidebarOpen(false)}
+              className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm md:hidden"
+            />
+            {/* Drawer */}
+            <motion.div
+              initial={{ x: '-100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '-100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="fixed top-0 left-0 bottom-0 z-[101] w-[240px] h-full md:hidden"
+            >
+              <Sidebar
+                onNewNote={() => { handleNewNote(); setSidebarOpen(false); }}
+                tags={allTags}
+                showClose={true}
+                onClose={() => setSidebarOpen(false)}
+              />
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
+      {/* ── STATIC SIDEBAR FOR DESKTOP ── */}
+      <div className="hidden md:block relative flex-shrink-0" style={{ zIndex: 20 }}>
         <Sidebar onNewNote={handleNewNote} tags={allTags} />
       </div>
 
